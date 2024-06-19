@@ -1,0 +1,43 @@
+name: Run Protractor Tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust according to your branch name
+  pull_request:
+    branches:
+      - main  # Adjust according to your branch name
+
+jobs:
+  protractor_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Update WebDriver Manager
+        run: npx webdriver-manager update
+
+      - name: Start WebDriver Manager
+        run: npx webdriver-manager start &
+
+      - name: Serve Angular Project
+        run: npm run start &
+        env:
+          NG_CLI_ANALYTICS: "false"  # Disable analytics prompts for ng CLI
+
+      - name: Wait for Angular to Start
+        run: |
+          timeout 60s bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:4200)" != "200" ]]; do sleep 5; done' || false
+
+      - name: Run Protractor Tests
+        run: npx protractor protractor.conf.js
