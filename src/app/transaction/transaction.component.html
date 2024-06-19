@@ -1,0 +1,83 @@
+  <!-- Navigation bar -->
+  <app-nav-bar></app-nav-bar>
+  <div class="container-fluid content">
+      <div class="row">
+          <!-- Left sidebar -->
+          <div class="col-md-3">
+              <app-leftbar></app-leftbar>
+          </div>
+          <div class="col-md-6">
+          <div class="middle_bar">
+            <!-- Top content -->
+            <div class="top-content">
+              <!-- Balance details section -->
+               <div class="Balance_details">
+                  <p><strong>Balance Details as on 08/02/2024</strong></p>
+                </div>
+              <!-- Balance details info -->
+                <div class="Balance_details_info">
+                  <p class="details">Account Number<span class="info1">{{ selectedAccount?.accountNumber }}</span></p>
+                  <p class="details">Available Balance<span class="info2">USD {{selectedAccount?.availableBalance }}</span></p>
+                  <p class="details">Cheques In Clearing<span class="info3">USD {{ selectedAccount?.chequesInClearing }}</span></p>
+                  <p class="note">Note: Transaction conducted on non-banking day will have the transaction date as the next working day.</p>
+                </div>
+            </div>
+             <!-- Transaction history -->
+            <div class="info">
+                <p>Transaction History</p>
+                <button class="back-button" (click)="goBack()">Back</button>
+            </div>
+
+            <div class="table-container">
+              <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 table1">
+                  <!-- Serial Number Column -->
+                  <ng-container matColumnDef="serialNumber">
+                    <th mat-header-cell *matHeaderCellDef> Serial Number </th>
+                    <td mat-cell *matCellDef="let transaction">{{ transaction.serialNumber }}</td>
+                  </ng-container>
+
+                  <!-- Transaction Date Column -->
+                  <ng-container matColumnDef="transactionDate">
+                    <th mat-header-cell *matHeaderCellDef> Transaction Date </th>
+                    <td mat-cell *matCellDef="let transaction">{{ transaction.transactionDate }}</td>
+                  </ng-container>
+
+                  <!-- Transaction Remark Column -->
+                  <ng-container matColumnDef="transactionRemark">
+                    <th mat-header-cell *matHeaderCellDef> Transaction Remark </th>
+                    <td mat-cell *matCellDef="let transaction">{{ transaction.transactionRemark }}</td>
+                  </ng-container>
+
+                  <!-- Credit/Debit Column -->
+                  <ng-container matColumnDef="creditDebit">
+                    <th mat-header-cell *matHeaderCellDef> Credit/Debit </th>
+                    <td mat-cell *matCellDef="let transaction">{{ transaction.creditDebit }}</td>
+                  </ng-container>
+
+                  <!-- Amount(USD) Column -->
+                  <ng-container matColumnDef="amountUSD">
+                    <th mat-header-cell *matHeaderCellDef> Amount(USD) </th>
+                    <td mat-cell *matCellDef="let transaction">{{ transaction.amountUSD }}</td>
+                  </ng-container>
+
+                  <!-- Balance Column -->
+                  <ng-container matColumnDef="balance">
+                    <th mat-header-cell *matHeaderCellDef> Balance(USD) </th>
+                    <td mat-cell *matCellDef="let transaction" class="balance-cell">{{ transaction.balance }}</td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <mat-paginator [pageSize]="5" [pageSizeOptions]="[2,3,4,5]" showFirstLastButtons></mat-paginator>
+          </div>
+        </div>
+      </div>
+      <!-- Right sidebar -->
+          <div class="col-md-3">
+            <app-rightbar></app-rightbar>
+          </div>
+  </div>
+  <!-- Footer -->
+  <app-footer-1></app-footer-1>

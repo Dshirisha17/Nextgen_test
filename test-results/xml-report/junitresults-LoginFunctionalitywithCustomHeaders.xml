@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="0" errors="0" failures="1" tests="6" time="27.871">
+ <testsuite name="Login Functionality with Custom Headers" timestamp="2024-06-14T02:40:19" hostname="localhost" time="15.346" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Functionality with Custom Headers" name="should open the login form, enter credentials, and log in with custom headers" time="2.29" />
+ </testsuite>
+ <testsuite name="Login Functionality with Custom Headers.Navigation to Transaction Page" timestamp="2024-06-14T02:40:22" hostname="localhost" time="9.195" errors="0" tests="3" skipped="0" disabled="0" failures="1">
+  <testcase classname="Login Functionality with Custom Headers.Navigation to Transaction Page" name="should navigate to the dashboard page" time="1.601" />
+  <testcase classname="Login Functionality with Custom Headers.Navigation to Transaction Page" name="should click on the current account" time="1.292" />
+  <testcase classname="Login Functionality with Custom Headers.Navigation to Transaction Page" name="should ensure redirection to the transaction page" time="6.3">
+   <failure type="exception" message="Failed: URL does not contain /transaction after clicking on current account
+Wait timed out after 5013ms"><![CDATA[TimeoutError: URL does not contain /transaction after clicking on current account
+Wait timed out after 5013ms
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2201:17
+    at ManagedPromise.invokeCallback_ (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+From: Task: URL does not contain /transaction after clicking on current account
+    at scheduleWait (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2188:20)
+    at ControlFlow.wait (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2517:12)
+    at thenableWebDriverProxy.wait (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:934:29)
+    at run (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\built\browser.js:58:33)
+    at ProtractorBrowser.to.<computed> [as wait] (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\built\browser.js:66:16)
+    at UserContext.<anonymous> (C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Next_GenBank1\src\e2e-spec.ts:165:12)
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+From: Task: Run it("should ensure redirection to the transaction page") in control flow
+    at UserContext.<anonymous> (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4264:13
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4172:9
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:64:48
+    at ControlFlow.emit (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\events.js:62:21)
+    at ControlFlow.shutdown_ (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2674:10)
+    at C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2599:53
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Next_GenBank1\src\e2e-spec.ts:163:5)
+    at addSpecsToSuite (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Suite.<anonymous> (C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Next_GenBank1\dist\out-tsc\e2e-spec.js:117:5)
+    at addSpecsToSuite (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandhata\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Next_GenBank1\src\e2e-spec.ts:27:1)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Login Functionality with Custom Headers.Back Button Functionality" timestamp="2024-06-14T02:40:31" hostname="localhost" time="3.33" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Functionality with Custom Headers.Back Button Functionality" name="should navigate to the transaction page" time="1.609" />
+  <testcase classname="Login Functionality with Custom Headers.Back Button Functionality" name="should click the back button and ensure redirection back to the dashboard page" time="1.72" />
+ </testsuite>
+</testsuites>

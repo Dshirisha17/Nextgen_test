@@ -1,0 +1,37 @@
+<div class="middle_bar">
+    <div class="info">
+        <p>Here are your Accounts</p>
+    </div>
+    <table class="table1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Account Type</th>
+                <th>Account Number</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Render current account fetched from the backend -->
+            <tr *ngIf="account">
+                <td>{{ account.name }}</td>
+                <td (click)="navigateToTransaction()"><a class="bank cursor-pointer">{{ account.accountType }}</a></td>
+                <td>{{ account.accountNumber }}</td>
+                <td>{{ account.balance }}</td>
+            </tr>
+              <!-- Hardcoded accounts -->
+              <tr>
+                <td>John</td>
+                <td><a class="bank cursor-pointer">Savings Account</a></td>
+                <td>22245</td>
+                <td>7657.98</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td><a class="bank cursor-pointer">Joint Account</a></td>
+                <td>892345</td>
+                <td>12657.98</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

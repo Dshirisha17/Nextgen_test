@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="0" errors="0" failures="0" tests="9" time="30.714">
+ <testsuite name="Login Functionality" timestamp="2024-06-18T10:43:42" hostname="localhost" time="16.634" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Functionality" name="should open the login form, enter credentials, and log in with custom headers" time="2.052" />
+ </testsuite>
+ <testsuite name="Login Functionality.Navigation to Transaction Page" timestamp="2024-06-18T10:43:44" hostname="localhost" time="7.576" errors="0" tests="4" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Functionality.Navigation to Transaction Page" name="should navigate to the dashboard page" time="1.758" />
+  <testcase classname="Login Functionality.Navigation to Transaction Page" name="should click on the current account" time="1.499" />
+  <testcase classname="Login Functionality.Navigation to Transaction Page" name="should ensure redirection to the transaction page" time="2.186" />
+  <testcase classname="Login Functionality.Navigation to Transaction Page" name="should verify balance in the transaction history table is not zero" time="2.132" />
+ </testsuite>
+ <testsuite name="Login Functionality.Back Button Functionality" timestamp="2024-06-18T10:43:52" hostname="localhost" time="3.208" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Functionality.Back Button Functionality" name="should navigate to the transaction page" time="1.457" />
+  <testcase classname="Login Functionality.Back Button Functionality" name="should click the back button and ensure redirection back to the dashboard page" time="1.747" />
+ </testsuite>
+ <testsuite name="Login Functionality.Logout Functionality" timestamp="2024-06-18T10:43:55" hostname="localhost" time="3.296" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Functionality.Logout Functionality" name="should have a logout button that is clickable" time="1.656" />
+  <testcase classname="Login Functionality.Logout Functionality" name="should log out and redirect to the login page" time="1.639" />
+ </testsuite>
+</testsuites>

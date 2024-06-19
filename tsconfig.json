@@ -1,0 +1,59 @@
+// /* To learn more about this file see: https://angular.io/config/tsconfig. */
+// {
+//   "compileOnSave": false,
+//   "compilerOptions": {
+//     "outDir": "./dist/out-tsc",
+//     // "mapRoot": "./dist/out-tsc/",
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "sourceMap": true,
+//     "declaration": false,
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "allowSyntheticDefaultImports": true,
+//     "moduleResolution": "node",
+//     "importHelpers": true,
+//     "target": "ES2022",
+//     "module": "ES2022",
+//     "typeRoots": [
+//       "node_modules/@types",
+//     ],
+//     "useDefineForClassFields": false,
+//     "lib": [
+//       "ES2022",
+//       "dom"
+//     ]
+//   },
+//   "angularCompilerOptions": {
+//     "enableI18nLegacyMessageIdFormat": false
+//   },
+//   "include": [
+//     "src/**/*.ts"
+//   ]
+// }
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

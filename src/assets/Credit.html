@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Upload Support data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <!-- Include the core CSS, this is needed by the grid -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css"/>
+    <!-- Include the theme CSS, only need to import the theme you are going to use -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css"/>
+
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #myGrid {
+        height: 600px;
+        width: 100%;
+      }
+    
+    #backToDashboard {
+      margin-bottom: 20px;
+      /* float: right;  */
+      
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Card Details of Customers</h1>
+    <button id="backToDashboard">Back to Dashboard</button>
+    <!-- <div class="">
+      <form action="/uploadfile" enctype="multipart/form-data" method="post">
+        <input type="file" name="uploadfile" accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'>
+        <input type="submit" value="Upload Excel">
+      </form>
+    </div> -->
+    <!-- <h3>This week's rota</h3> -->
+    <div id="myGrid" class="ag-theme-alpine"></div>
+     <script type="text/javascript">
+        // Function to demonstrate calling grid's API
+        function deselect() {
+          gridOptions.api.deselectAll();
+        }
+      
+        function dateFormatter(params) {
+          return params.value.split("T")[0];
+        }
+      
+        // Grid Options are properties passed to the grid
+        const gridOptions = {
+          // each entry here represents one column
+          columnDefs: [
+            { field: "CARD_NUMBER", headerName: "Card Number" },
+            { field: "CARD_CVV", headerName: "Card CVV" },
+            { field: "CARD_VALID_TO", headerName: "Card Valid To" },
+            { field: "CARD_TYPE", headerName: "Card Type" },
+            { field: "CARDHOLDER_NM", headerName: "Cardholder Name" }
+          ],
+      
+          // default col def properties get applied to all columns
+          defaultColDef: { sortable: true, filter: true, floatingFilter: true },
+          
+          rowSelection: 'multiple', // allow rows to be selected
+          animateRows: true, // have rows animate to new positions when sorted
+      
+          // example event handler
+          onCellClicked: params => {
+            console.log('cell was clicked', params);
+          }
+        };
+      
+        // get div to host the grid
+        const eGridDiv = document.getElementById("myGrid");
+        // new grid instance, passing in the hosting DIV and Grid Options
+        // new agGrid.Grid(eGridDiv, gridOptions);
+        const grid = new agGrid.Grid(eGridDiv, gridOptions);
+      
+        // Fetch data from server
+        fetchCardDetails();
+      
+
+function fetchCardDetails() {
+    fetch('/api/services/SYSIBMSERVICE/getCarddetails/V2', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic aWJtdXNlcjpzYW5kaGF0YQ=='
+        },
+        body: JSON.stringify({
+            "ACCNO": "12345"
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        // Update the grid or do something with the data
+        gridOptions.api.setRowData(data["ResultSet Output"]);
+    })
+    .catch(error => {
+        console.error('Error fetching card details:', error.message);
+    });
+   }
+
+
+
+        // Add event listener for "Back to Dashboard" button
+    document.getElementById('backToDashboard').addEventListener('click', function() {
+      window.location.href = '/dashboard'; // Navigate to the Dashboard page
+    });
+    </script>
+  </body>
+</html>

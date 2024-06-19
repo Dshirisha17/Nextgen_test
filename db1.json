@@ -1,0 +1,78 @@
+{
+  "accounts": [
+    {
+      "id": "1",
+      "name": "John",
+      "accountType": "CurrentAccount",
+      "accountNumber": "122345",
+      "balance": "1657.98"
+    },
+    {
+      "id": "2",
+      "name": "John",
+      "accountType": "SavingsAccount",
+      "accountNumber": "22245",
+      "balance": "7657.98"
+    },
+    {
+      "id": "3",
+      "name": "John",
+      "accountType": "JointAccount",
+      "accountNumber": "892345",
+      "balance": "12657.98"
+    },
+    {
+      "id": "ad46",
+      "username": "Popup_demo",
+      "password": "popup"
+    },
+    {
+      "id": "a7f1",
+      "username": "Popup_demo",
+      "password": "popup"
+    },
+    {
+      "id": "5de0",
+      "username": "Popup_demo",
+      "password": "popup"
+    },
+    {
+      "id": "33c6",
+      "username": "sandhata_demo",
+      "password": "sandhata"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "Popup_demo",
+      "password": "popup"
+    }
+  ],
+  "details": [
+    {
+      "id": "1",
+      "accountNumber": "122345",
+      "availableBalance": "1657.98",
+      "chequesInClearing": "0.00"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "serialNumber": 1,
+      "transactionDate": "05/02/2024 14:23:00",
+      "transactionRemark": "Salary",
+      "creditDebit": "Credit",
+      "amountUSD": 107657.98
+    },
+    {
+      "id": "2",
+      "serialNumber": 2,
+      "transactionDate": "05/02/2024 15:23:00 ",
+      "transactionRemark": "UPI/18976896/Payment from ph/Q2112",
+      "creditDebit": "Debit",
+      "amountUSD": 107
+    }
+  ]
+}

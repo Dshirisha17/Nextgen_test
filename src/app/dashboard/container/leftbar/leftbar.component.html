@@ -1,0 +1,55 @@
+<div class="left_bar">
+  <div class="left_content_box">
+    <div class="sidenav">
+      <mat-accordion>
+        <!-- Accounts -->
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header class="active-panel">
+            <mat-panel-title sidenav_info>
+              Accounts
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a href="#"(click)="preventDefault($event)">Detailed Statement</a><br>
+          <!-- <a href="#"(click)="preventDefault($event)">Debit/ATM Card Details</a><br> -->
+          <a href="/assets/Credit.html">Cards Details</a><br>
+          <a href="#"(click)="preventDefault($event)">Cheque Book Request</a>
+        </mat-expansion-panel>
+        <!-- Deposits -->
+        <mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Deposits
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a href="#"(click)="preventDefault($event)">Open Deposits</a><br>
+          <a href="#"(click)="preventDefault($event)">Renew FD</a><br>
+          <a href="#"(click)="preventDefault($event)">Service Requests</a><br>
+        </mat-expansion-panel>
+        <!-- Pay Later -->
+        <mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Pay Later
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a href="#"(click)="preventDefault($event)">Bank Accounts</a><br>
+          <a href="#"(click)="preventDefault($event)">Credit Cards</a><br>
+          <!-- <a href="/assets/Credit.html">Credit Cards</a><br> -->
+          <a href="#"(click)="preventDefault($event)">PPF Accounts</a><br>
+        </mat-expansion-panel>
+        <!-- e-Statement -->
+        <mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              e-Statement
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a href="#"(click)="preventDefault($event)">Bank Accounts</a><br>
+          <a href="#"(click)="preventDefault($event)">Credit Cards</a><br>
+          <a href="#"(click)="preventDefault($event)">PPF Accounts</a><br>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
+
