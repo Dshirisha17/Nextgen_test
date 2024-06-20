@@ -19,7 +19,7 @@
         padding: 0;
       }
       #myGrid {
-        height: 600px;
+        height: 900px;
         width: 100%;
       }
     
@@ -33,13 +33,6 @@
   <body>
     <h1>Card Details of Customers</h1>
     <button id="backToDashboard">Back to Dashboard</button>
-    <!-- <div class="">
-      <form action="/uploadfile" enctype="multipart/form-data" method="post">
-        <input type="file" name="uploadfile" accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'>
-        <input type="submit" value="Upload Excel">
-      </form>
-    </div> -->
-    <!-- <h3>This week's rota</h3> -->
     <div id="myGrid" class="ag-theme-alpine"></div>
      <script type="text/javascript">
         // Function to demonstrate calling grid's API
@@ -55,6 +48,7 @@
         const gridOptions = {
           // each entry here represents one column
           columnDefs: [
+            {field: "ACCOUNT_NO", headerName: "Account Number"},
             { field: "CARD_NUMBER", headerName: "Card Number" },
             { field: "CARD_CVV", headerName: "Card CVV" },
             { field: "CARD_VALID_TO", headerName: "Card Valid To" },
@@ -85,16 +79,16 @@
       
 
 function fetchCardDetails() {
-    fetch('/api/services/SYSIBMSERVICE/getCarddetails/V2', {
+    fetch('/api/services/SYSIBMSERVICE/getCarddetails/V3', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': 'Basic aWJtdXNlcjpzYW5kaGF0YQ=='
         },
-        body: JSON.stringify({
-            "ACCNO": "12345"
-        })
+        // body: JSON.stringify({
+        //     "ACCNO": "12345"
+        // })
     })
     .then(response => {
         if (!response.ok) {
@@ -111,12 +105,9 @@ function fetchCardDetails() {
         console.error('Error fetching card details:', error.message);
     });
    }
-
-
-
-        // Add event listener for "Back to Dashboard" button
+     // Add event listener for "Back to Dashboard" button
     document.getElementById('backToDashboard').addEventListener('click', function() {
-      window.location.href = '/dashboard'; // Navigate to the Dashboard page
+      window.location.href = '/dashboard'; 
     });
     </script>
   </body>

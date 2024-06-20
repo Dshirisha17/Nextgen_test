@@ -275,152 +275,180 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "passed": true,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1718687622531,
-        "duration": 2052
+        "timestamp": 1718862792669,
+        "duration": 6905
     },
     {
         "description": "should navigate to the dashboard page|Navigation to Transaction Page|Login Functionality",
         "passed": true,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1718687624857,
-        "duration": 1485
+        "timestamp": 1718862799801,
+        "duration": 1479
     },
     {
         "description": "should click on the current account|Navigation to Transaction Page|Login Functionality",
-        "passed": true,
+        "passed": false,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
-        "message": "Passed",
+        "message": [
+            "Failed: No element found using locator: by.cssContainingText(\".bank\", \"Current Account\")"
+        ],
+        "trace": [
+            "NoSuchElementError: No element found using locator: by.cssContainingText(\".bank\", \"Current Account\")\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27\n    at ManagedPromise.invokeCallback_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:68:32)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:112:25\n    at new ManagedPromise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1077:7)\n    at ControlFlow.promise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2505:12)\n    at schedulerExecute (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:95:18)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\nFrom: Task: Run it(\"should click on the current account\") in control flow\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2599:53\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:65:5)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:54:3)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:20:1)"
+        ],
         "browserLogs": [],
-        "timestamp": 1718687626393,
-        "duration": 1448
+        "screenShotFile": "images\\002a00cc-0032-008c-0070-00d0007f00a9.png",
+        "timestamp": 1718862801321,
+        "duration": 937
     },
     {
         "description": "should ensure redirection to the transaction page|Navigation to Transaction Page|Login Functionality",
-        "passed": true,
+        "passed": false,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Failed: No element found using locator: by.cssContainingText(\".bank\", \"Current Account\")"
+        ],
+        "trace": [
+            "NoSuchElementError: No element found using locator: by.cssContainingText(\".bank\", \"Current Account\")\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27\n    at ManagedPromise.invokeCallback_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:74:32)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:112:25\n    at new ManagedPromise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1077:7)\n    at ControlFlow.promise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2505:12)\n    at schedulerExecute (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:95:18)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\nFrom: Task: Run it(\"should ensure redirection to the transaction page\") in control flow\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2599:53\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:71:5)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:54:3)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:20:1)"
+        ],
         "browserLogs": [],
-        "timestamp": 1718687627892,
-        "duration": 2135
+        "screenShotFile": "images\\006f00cc-0052-0048-0034-00b900c7005a.png",
+        "timestamp": 1718862802423,
+        "duration": 952
     },
     {
         "description": "should verify balance in the transaction history table is not zero|Navigation to Transaction Page|Login Functionality",
-        "passed": true,
+        "passed": false,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Failed: No element found using locator: by.cssContainingText(\".bank\", \"Current Account\")"
+        ],
+        "trace": [
+            "NoSuchElementError: No element found using locator: by.cssContainingText(\".bank\", \"Current Account\")\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27\n    at ManagedPromise.invokeCallback_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:84:32)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:112:25\n    at new ManagedPromise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1077:7)\n    at ControlFlow.promise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2505:12)\n    at schedulerExecute (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:95:18)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\nFrom: Task: Run it(\"should verify balance in the transaction history table is not zero\") in control flow\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2599:53\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:81:5)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:54:3)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:20:1)"
+        ],
         "browserLogs": [],
-        "timestamp": 1718687630064,
-        "duration": 2095
+        "screenShotFile": "images\\00a20092-0083-00aa-0053-009800af0009.png",
+        "timestamp": 1718862803541,
+        "duration": 861
     },
     {
         "description": "should navigate to the transaction page|Back Button Functionality|Login Functionality",
         "passed": true,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1718687632189,
-        "duration": 1429
+        "timestamp": 1718862804558,
+        "duration": 1532
     },
     {
         "description": "should click the back button and ensure redirection back to the dashboard page|Back Button Functionality|Login Functionality",
         "passed": true,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1718687633649,
-        "duration": 1717
+        "timestamp": 1718862806129,
+        "duration": 1105
     },
     {
         "description": "should have a logout button that is clickable|Logout Functionality|Login Functionality",
-        "passed": true,
+        "passed": false,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Expected false to be true.",
+            "Failed: No element found using locator: By(css selector, *[id=\"logout_button\"])"
+        ],
+        "trace": [
+            "Error: Failed expectation\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:129:46)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)",
+            "NoSuchElementError: No element found using locator: By(css selector, *[id=\"logout_button\"])\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27\n    at ManagedPromise.invokeCallback_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as isEnabled] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as isEnabled] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:130:33)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\nFrom: Task: Run it(\"should have a logout button that is clickable\") in control flow\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2599:53\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:126:5)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:120:3)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:20:1)"
+        ],
         "browserLogs": [],
-        "timestamp": 1718687635409,
-        "duration": 1615
+        "screenShotFile": "images\\003100fa-00f6-0094-009d-001f00d50046.png",
+        "timestamp": 1718862807277,
+        "duration": 1013
     },
     {
         "description": "should log out and redirect to the login page|Logout Functionality|Login Functionality",
-        "passed": true,
+        "passed": false,
         "pending": false,
         "os": "windows",
-        "sessionId": "a8f4158338e000a0b6c1c729a7ce8cce",
-        "instanceId": 14460,
+        "sessionId": "d96feca16ad21ad59b1a916d0d4f08fd",
+        "instanceId": 23896,
         "browser": {
             "name": "chrome",
-            "version": "126.0.6478.61"
+            "version": "126.0.6478.114"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Failed: No element found using locator: By(css selector, *[id=\"logout_button\"])"
+        ],
+        "trace": [
+            "NoSuchElementError: No element found using locator: By(css selector, *[id=\"logout_button\"])\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27\n    at ManagedPromise.invokeCallback_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:136:26)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:112:25\n    at new ManagedPromise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1077:7)\n    at ControlFlow.promise (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2505:12)\n    at schedulerExecute (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:95:18)\n    at TaskQueue.execute_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\nFrom: Task: Run it(\"should log out and redirect to the login page\") in control flow\n    at UserContext.<anonymous> (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:94:19)\n    at attempt (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4297:26)\n    at QueueRunner.run (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4217:20)\n    at runNext (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4257:20)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4264:13\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4172:9\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasminewd2\\index.js:64:48\n    at ControlFlow.emit (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\events.js:62:21)\n    at ControlFlow.shutdown_ (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2674:10)\n    at C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2599:53\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:133:5)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Suite.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:120:3)\n    at addSpecsToSuite (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1107:25)\n    at Env.describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:1074:7)\n    at describe (C:\\Users\\sandhata\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\jasmine-core\\lib\\jasmine-core\\jasmine.js:4399:18)\n    at Object.<anonymous> (C:\\Users\\sandhata\\shirisha dodla\\UI_testing_nextgen\\Nextgen_test\\src\\e2e-spec.ts:20:1)"
+        ],
         "browserLogs": [],
-        "timestamp": 1718687637070,
-        "duration": 1593
+        "screenShotFile": "images\\00300037-00fe-00fc-00ea-009c0018000e.png",
+        "timestamp": 1718862808461,
+        "duration": 936
     }
 ];
 
