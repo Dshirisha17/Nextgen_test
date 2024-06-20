@@ -31,17 +31,10 @@ jobs:
           echo "Updating WebDriver Manager..."
           npx webdriver-manager update
 
-      - name: Start WebDriver Manager
-        run: |
-          echo "Starting WebDriver Manager..."
-          npx webdriver-manager start &
-          sleep 5
-          curl http://localhost:4444/wd/hub/status
-
       - name: Serve Angular Project
         run: |
           echo "Serving Angular project..."
-          npm run start &
+          nohup npm run start &
         env:
           NG_CLI_ANALYTICS: "false"  # Disable analytics prompts for ng CLI
 
@@ -60,6 +53,11 @@ jobs:
             echo "Angular app did not start in time"
             exit 1
           fi
+
+      - name: Start WebDriver Manager
+        run: |
+          echo "Starting WebDriver Manager..."
+          nohup npx webdriver-manager start &
 
       - name: Run Protractor Tests
         run: |
