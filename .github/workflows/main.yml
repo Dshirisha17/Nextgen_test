@@ -7,7 +7,7 @@ on:
 
 jobs:
   protractor_tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout Repository
@@ -23,9 +23,7 @@ jobs:
           echo "Installing dependencies..."
           npm install
           npm install -g protractor  # Install Protractor globally
-          sudo apt-get update
-          sudo apt-get install -y libnss3 xvfb  # Install necessary dependencies
-
+         
       - name: Update WebDriver Manager
         run: npx webdriver-manager update
 
@@ -52,4 +50,4 @@ jobs:
       - name: Run Protractor Tests
         run: |
           echo "Running Protractor tests..."
-          xvfb-run --auto-servernum --server-args="-screen 0 1024x768x24" protractor protractor.conf.js
+          protractor protractor.conf.js
