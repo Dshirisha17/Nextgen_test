@@ -1,12 +1,9 @@
-name: Run Protractor Tests
+name: Protractor Tests
 
 on:
   push:
     branches:
-      - main  # Adjust according to your branch name
-  pull_request:
-    branches:
-      - main  # Adjust according to your branch name
+      - main
 
 jobs:
   protractor_tests:
@@ -22,25 +19,25 @@ jobs:
           node-version: '14'
 
       - name: Install Dependencies
-        run: |
-          echo "Installing dependencies..."
-          npm install
+        run: npm install
 
       - name: Update WebDriver Manager
-        run: |
-          echo "Updating WebDriver Manager..."
-          npx webdriver-manager update
+        run: npx webdriver-manager update
 
-      - name: Serve Angular Project
-        run: |
-          echo "Serving Angular project..."
-          nohup npm run start &
+      - name: Start WebDriver Manager
+        run: npx webdriver-manager start &
+   
+
+      - name: Build Angular Application
+        run: npm run build
+
+      - name: Start Local Server
+        run: npm start &
         env:
-          NG_CLI_ANALYTICS: "false"  # Disable analytics prompts for ng CLI
+          NG_CLI_ANALYTICS: "false"
 
-      - name: Wait for Angular to Start
+      - name: Wait for Application to Start
         run: |
-          echo "Waiting for Angular app to start..."
           for i in {1..30}; do
             if curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 | grep -q "200"; then
               echo "Angular app is up!"
@@ -54,12 +51,5 @@ jobs:
             exit 1
           fi
 
-      - name: Start WebDriver Manager
-        run: |
-          echo "Starting WebDriver Manager..."
-          nohup npx webdriver-manager start &
-
       - name: Run Protractor Tests
-        run: |
-          echo "Running Protractor tests..."
-          npx protractor protractor.conf.js
+        run: protractor protractor.conf.js
