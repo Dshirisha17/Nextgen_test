@@ -1,3 +1,62 @@
+# name: Protractor Tests
+
+
+  # push:
+    # branches:
+      # - main
+
+# jobs:
+#   protractor_tests:
+#     runs-on: windows-latest
+
+    # steps:
+    #   - name: Checkout Repository
+    #     uses: actions/checkout@v2
+
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '20'
+
+      # - name: Install Dependencies
+      #   run: |
+      #     echo "Installing dependencies..."
+      #     npm install
+      #     npm install -g protractor  # Install Protractor globally
+         
+      # - name: Update WebDriver Manager
+      #   run: npx webdriver-manager update
+
+      # - name: Start WebDriver Manager
+      #   # run: npx webdriver-manager start &
+      #   run: |
+      #     echo "Starting WebDriver Manager..."
+      #     npx webdriver-manager start &
+      #     echo "Waiting for WebDriver Manager to start..."
+      #     Start-Sleep -Seconds 10  # Wait for WebDriver Manager to start
+   
+
+      
+      # - name: Wait for Application to Start
+      #   run: |
+      #     for i in {1..30}; do
+      #       if curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 | grep -q "200"; then
+      #         echo "Angular app is up!"
+      #         break
+      #       fi
+      #       echo "Waiting for Angular app to start ($i/30)..."
+      #       sleep 5
+      #     done
+      #     if ! curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 | grep -q "200"; then
+      #       echo "Angular app did not start in time"
+      #       exit 1
+      #     fi
+
+      # - name: Run Protractor Tests
+      #   run: |
+      #     echo "Running Protractor tests..."
+      #     protractor protractor.conf.js
+
 name: Protractor Tests
 
 on:
@@ -16,41 +75,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '14'
 
       - name: Install Dependencies
         run: |
           echo "Installing dependencies..."
           npm install
           npm install -g protractor  # Install Protractor globally
-         
+
       - name: Update WebDriver Manager
         run: npx webdriver-manager update
 
       - name: Start WebDriver Manager
-        # run: npx webdriver-manager start &
         run: |
           echo "Starting WebDriver Manager..."
-          npx webdriver-manager start &
+          Start-Job -ScriptBlock { npx webdriver-manager start } | Out-Null
           echo "Waiting for WebDriver Manager to start..."
           Start-Sleep -Seconds 10  # Wait for WebDriver Manager to start
-   
-
-      
-      # - name: Wait for Application to Start
-      #   run: |
-      #     for i in {1..30}; do
-      #       if curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 | grep -q "200"; then
-      #         echo "Angular app is up!"
-      #         break
-      #       fi
-      #       echo "Waiting for Angular app to start ($i/30)..."
-      #       sleep 5
-      #     done
-      #     if ! curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 | grep -q "200"; then
-      #       echo "Angular app did not start in time"
-      #       exit 1
-      #     fi
 
       - name: Run Protractor Tests
         run: |
