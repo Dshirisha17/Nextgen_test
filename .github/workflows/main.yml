@@ -89,7 +89,8 @@ jobs:
       - name: Start WebDriver Manager
         run: |
           echo "Starting WebDriver Manager..."
-          npx webdriver-manager start 
+          # npx webdriver-manager start 
+          Start-Job -ScriptBlock { npx webdriver-manager start } | Out-Null
           echo "Waiting for WebDriver Manager to start..."
           
       - name: Run Protractor Tests
