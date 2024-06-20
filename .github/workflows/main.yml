@@ -1,0 +1,55 @@
+name: Protractor Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  protractor_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Update WebDriver Manager
+        run: npx webdriver-manager update
+
+      - name: Start WebDriver Manager
+        run: npx webdriver-manager start &
+   
+
+      - name: Build Angular Application
+        run: npm run build
+
+      - name: Start Local Server
+        run: npm start &
+        env:
+          NG_CLI_ANALYTICS: "false"
+
+      - name: Wait for Application to Start
+        run: |
+          for i in {1..30}; do
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 | grep -q "200"; then
+              echo "Angular app is up!"
+              break
+            fi
+            echo "Waiting for Angular app to start ($i/30)..."
+            sleep 5
+          done
+          if ! curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 | grep -q "200"; then
+            echo "Angular app did not start in time"
+            exit 1
+          fi
+
+      - name: Run Protractor Tests
+        run: protractor protractor.conf.js
