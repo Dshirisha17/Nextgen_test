@@ -28,14 +28,7 @@ jobs:
         run: npx webdriver-manager start &
    
 
-      - name: Build Angular Application
-        run: npm run build
-
-      - name: Start Local Server
-        run: npm start &
-        env:
-          NG_CLI_ANALYTICS: "false"
-
+      
       - name: Wait for Application to Start
         run: |
           for i in {1..30}; do
