@@ -1,4 +1,4 @@
-name: Run Protractor Tests
+name: Run Protractor Tests on Windows
 
 on:
   push:
@@ -9,12 +9,6 @@ on:
 jobs:
   test:
     runs-on: windows-latest
-
-    services:
-      selenium:
-        image: selenium/standalone-chrome
-        ports:
-          - 4444:4444
 
     steps:
     - name: Checkout code
@@ -28,13 +22,21 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Start Selenium Server
+    - name: Download ChromeDriver
       run: |
-        npm install -g selenium-standalone
-        selenium-standalone install
-        selenium-standalone start &
-      continue-on-error: true
+        npm install -g chromedriver
+
+    - name: Install Selenium WebDriver
+      run: |
+        npm install -g webdriver-manager
+        webdriver-manager update
+
+    - name: Start Selenium WebDriver
+      run: |
+        npx webdriver-manager start &
+      shell: cmd
 
     - name: Run Protractor Tests
       run: |
         npx protractor protractor.conf.js
+      shell: cmd
