@@ -57,7 +57,7 @@
       #     echo "Running Protractor tests..."
       #     protractor protractor.conf.js
 
-name: Protractor Tests
+name: WebDriver Setup
 
 on:
   push:
@@ -65,7 +65,7 @@ on:
       - main
 
 jobs:
-  protractor_tests:
+  setup_webdriver:
     runs-on: windows-latest
 
     steps:
@@ -89,11 +89,21 @@ jobs:
       - name: Start WebDriver Manager
         run: |
           echo "Starting WebDriver Manager..."
-          # npx webdriver-manager start 
           Start-Job -ScriptBlock { npx webdriver-manager start } | Out-Null
           echo "Waiting for WebDriver Manager to start..."
-          
-      - name: Run Protractor Tests
-        run: |
-          echo "Running Protractor tests..."
-          protractor protractor.conf.js
+          Start-Sleep -Seconds 10  # Wait for WebDriver Manager to start
+
+      - name: Create Artifact for Next Workflow
+        run: echo "WebDriver started" > webdriver.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: webdriver-artifact
+          path: webdriver.txt
+
+      - name: Trigger Protractor Tests Workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: trigger-protractor-tests
