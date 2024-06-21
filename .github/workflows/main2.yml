@@ -1,0 +1,47 @@
+name: Run Protractor Tests
+
+on:
+  repository_dispatch:
+    types: [trigger-protractor-tests]
+
+jobs:
+  protractor_tests:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Download Artifact from Previous Workflow
+        uses: actions/download-artifact@v2
+        with:
+          name: webdriver-artifact
+          path: ./artifacts
+
+      - name: Verify WebDriver Started
+        run: |
+          if not exist ./artifacts/webdriver.txt (
+            echo "WebDriver not started" & exit 1
+          )
+          echo "WebDriver started"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: |
+          echo "Installing dependencies..."
+          npm install
+          npm install -g protractor  # Install Protractor globally
+
+      - name: Run Protractor Tests
+        run: |
+          echo "Running Protractor tests..."
+          protractor protractor.conf.js
+
+      - name: Stop WebDriver Manager
+        run: |
+          echo "Stopping WebDriver Manager..."
+          Stop-Process -Name chromedriver -Force
