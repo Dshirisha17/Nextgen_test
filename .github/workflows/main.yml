@@ -24,11 +24,11 @@ jobs:
 
     - name: Download ChromeDriver
       run: |
-        npm install -g chromedriver
+        npm install -chromedriver
 
     - name: Install Selenium WebDriver
       run: |
-        npm install -g webdriver-manager
+        npm install webdriver-manager
         npx webdriver-manager update
 
     - name: Start Selenium WebDriver
