@@ -91,7 +91,7 @@ jobs:
           echo "Starting WebDriver Manager..."
           Start-Job -ScriptBlock { npx webdriver-manager start } | Out-Null
           echo "Waiting for WebDriver Manager to start..."
-          Start-Sleep -Seconds 10  # Wait for WebDriver Manager to start
+         t
 
       - name: Create Artifact for Next Workflow
         run: echo "WebDriver started" > webdriver.txt
