@@ -36,12 +36,12 @@ jobs:
       shell: pwsh
 
     - name: Start Selenium WebDriver
-      run: |
-        npx webdriver-manager start &
-        wait-on http://localhost:4444/wd/hub
       shell: pwsh
+      run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow -PassThru | Out-Null
+           Start-Sleep -Seconds 5
+           wait-on http://localhost:4444/wd/hub
 
     - name: Run Protractor Tests
       run: |
         npx protractor conf.js
-      shell: pwsh
+      shell: cmd
