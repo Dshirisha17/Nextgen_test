@@ -1,4 +1,4 @@
-name: Run Protractor Tests on Windows
+name: Run Protractor Tests
 
 on:
   push:
@@ -22,27 +22,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Install wait-on
-      run: npm install -g wait-on
-
     - name: Download ChromeDriver
       run: npm install chromedriver@latest
 
-    - name: Install Selenium WebDriver
-      run: |
-        npm install -g webdriver-manager
-        $chromedriverVersion = (npx chromedriver --version | Select-String -Pattern '\d+\.\d+\.\d+\.\d+' -AllMatches).Matches[0].Value
-        npx webdriver-manager update --gecko=false --versions.chrome=$chromedriverVersion
-      shell: pwsh
+    - name: Start Selenium server
+      run: npx webdriver-manager start
 
-    - name: Start Selenium WebDriver
-      shell: pwsh
-      run: |
-        Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow -PassThru | Out-Null
-        Start-Sleep -Seconds 5
-        wait-on http://localhost:4444/wd/hub
+    - name: Wait for Selenium server
+      run: npx wait-on http://localhost:4444/wd/hub
 
-    - name: Run Protractor Tests
-      run: |
-        npx protractor conf.js
-      shell: pwsh
+    - name: Run Protractor tests
+      run: npx protractor conf.js
