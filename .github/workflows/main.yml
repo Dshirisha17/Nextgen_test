@@ -29,7 +29,7 @@ jobs:
     - name: Install Selenium WebDriver
       run: |
         npm install -g webdriver-manager
-        webdriver-manager update
+        npx webdriver-manager update
 
     - name: Start Selenium WebDriver
       run: |
