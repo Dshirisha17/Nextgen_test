@@ -31,15 +31,17 @@ jobs:
     - name: Install Selenium WebDriver
       run: |
         npm install -g webdriver-manager
-        npx webdriver-manager update --gecko=false --versions.chrome=$(npx chromedriver --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
+        $chromedriverVersion = (npx chromedriver --version | Select-String -Pattern '\d+\.\d+\.\d+\.\d+' -AllMatches).Matches[0].Value
+        npx webdriver-manager update --gecko=false --versions.chrome=$chromedriverVersion
+      shell: pwsh
 
     - name: Start Selenium WebDriver
       run: |
         npx webdriver-manager start &
         wait-on http://localhost:4444/wd/hub
-      shell: cmd
+      shell: pwsh
 
     - name: Run Protractor Tests
       run: |
-        npx protractor protractor.conf.js
-      shell: cmd
+        npx protractor conf.js
+      shell: pwsh
