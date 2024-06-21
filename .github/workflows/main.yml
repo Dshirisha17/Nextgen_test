@@ -22,18 +22,21 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install wait-on
+      run: npm install -g wait-on
+
     - name: Download ChromeDriver
-      run: |
-        npm install -chromedriver
+      run: npm install chromedriver@latest
 
     - name: Install Selenium WebDriver
       run: |
-        npm install webdriver-manager
-        npx webdriver-manager update
+        npm install -g webdriver-manager
+        npx webdriver-manager update --gecko=false --versions.chrome=$(npx chromedriver --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
 
     - name: Start Selenium WebDriver
       run: |
         npx webdriver-manager start &
+        wait-on http://localhost:4444/wd/hub
       shell: cmd
 
     - name: Run Protractor Tests
