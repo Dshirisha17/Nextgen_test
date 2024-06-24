@@ -29,30 +29,8 @@ jobs:
       run: npx webdriver-manager start
       shell: pwsh
 
-    - name: Wait for Selenium server
-      run: |
-        $url = 'http://localhost:4444/wd/hub'
-        $maximumWaitTimeInSeconds = 120
-        $start = Get-Date
-        $webRequest = $null
-
-        do {
-          try {
-            $webRequest = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 1
-            if ($webRequest.StatusCode -eq 200) {
-              Write-Host "Selenium server is ready!"
-              exit 0
-            }
-          }
-          catch {
-            # Do nothing, just continue waiting
-          }
-          Start-Sleep -Seconds 1
-        }
-        while ((New-TimeSpan -Start $start).TotalSeconds -lt $maximumWaitTimeInSeconds)
-
-        Write-Host "Selenium server did not start within the maximum wait time."
-        exit 1
+ 
+      
 
     - name: Run Protractor tests
       run: npx protractor conf.js
