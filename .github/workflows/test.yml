@@ -61,5 +61,4 @@ jobs:
     - name: Run Protractor tests
       run: npx protractor protractor.conf.js
 
-has context menu
 
