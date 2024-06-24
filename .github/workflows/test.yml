@@ -22,8 +22,22 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    # - name: Download and update ChromeDriver
+    #   run: npx webdriver-manager update --versions.chrome $(npx chromedriver --version | grep -oP '\d+\.\d+\.\d+')
+
     - name: Download and update ChromeDriver
-      run: npx webdriver-manager update --versions.chrome $(npx chromedriver --version | grep -oP '\d+\.\d+\.\d+')
+      run: |
+        $chromeVersion = (npx chromedriver --version) -match '\d+\.\d+\.\d+'
+        if ($matches[0]) {
+          npx webdriver-manager update --versions.chrome $matches[0]
+        } else {
+          Write-Error "Failed to determine ChromeDriver version"
+        }
+      shell: pwsh
+
+    - name: Start Selenium server
+      run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow; Start-Sleep -Seconds 10
+      shell: pwsh
 
     - name: Start Selenium server
       run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow; Start-Sleep -Seconds 10
