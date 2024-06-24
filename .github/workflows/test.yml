@@ -22,11 +22,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Download ChromeDriver
-      run: npm install chromedriver@latest
-
-    - name: Update WebDriver Manager
-      run: npx webdriver-manager update
+    - name: Download and update ChromeDriver
+      run: npx webdriver-manager update --versions.chrome $(npx chromedriver --version | grep -oP '\d+\.\d+\.\d+')
 
     - name: Start Selenium server
       run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow; Start-Sleep -Seconds 10
