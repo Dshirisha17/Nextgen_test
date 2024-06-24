@@ -39,9 +39,9 @@ jobs:
       run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow; Start-Sleep -Seconds 10
       shell: pwsh
 
-    - name: Start Selenium server
-      run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow; Start-Sleep -Seconds 10
-      shell: pwsh
+    # - name: Start Selenium server
+    #   run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow; Start-Sleep -Seconds 10
+    #   shell: pwsh
 
     - name: Wait for Selenium server
       run: |
