@@ -32,7 +32,7 @@ jobs:
     - name: Wait for Selenium server
       run: |
         $url = 'http://localhost:4444/wd/hub'
-        $maximumWaitTimeInSeconds = 60
+        $maximumWaitTimeInSeconds = 120
         $start = Get-Date
         $webRequest = $null
 
