@@ -22,9 +22,12 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install Angular CLI
+      run: npm install @angular/cli@latest
+
     - name: Start application
       run: |
-        Start-Process 'ng' -ArgumentList 'serve --port 4200' -NoNewWindow
+        Start-Process 'npx' -ArgumentList 'ng serve --port 4200' -NoNewWindow
         Start-Sleep -Seconds 30  # Adjust sleep time based on how long your application takes to start
 
     - name: Wait for application to be ready
