@@ -33,4 +33,4 @@ jobs:
       
 
     - name: Run Protractor tests
-      run: npx protractor conf.js
+      run: npx protractor protractor.conf.js
