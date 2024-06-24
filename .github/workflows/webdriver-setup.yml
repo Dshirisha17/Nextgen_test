@@ -59,8 +59,8 @@
 
 name: WebDriver Setup
 
-on:
-  push:
+# on:
+#   push:
     branches:
       - main
 
