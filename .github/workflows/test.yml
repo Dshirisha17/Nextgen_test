@@ -42,7 +42,7 @@ jobs:
         $maxAttempts = 5
         $attempt = 0
         while ($attempt -lt $maxAttempts) {
-          $response = Invoke-WebRequest -Url http://localhost:4444/wd/hub 
+          $response = Invoke-WebRequest -Uri http://localhost:4444/wd/hub 
           if ($response.StatusCode -eq 200) {
             Write-Host "Selenium Server is up and running."
             break
