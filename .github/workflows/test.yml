@@ -1,53 +1,65 @@
 name: Run Protractor Tests
-
+ 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+ 
 jobs:
   test:
     runs-on: windows-latest
-
+ 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+ 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '14'
-
+ 
     - name: Install dependencies
       run: npm install
-
-    - name: Download ChromeDriver
-      run: npm install chromedriver@latest
-
-    - name: Start Selenium server
-      run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow
-
-    - name: Wait for Selenium server to be ready
+ 
+    - name: Download and update ChromeDriver
+      run: |
+        $chromeVersion = (npx chromedriver --version) -match '\d+\.\d+\.\d+'
+        if ($matches[0]) {
+          npx webdriver-manager update --versions.chrome $matches[0]
+        } else {
+          Write-Error "Failed to determine ChromeDriver version"
+        }
+      shell: pwsh
+ 
+    - name: Start Selenium server in the background
+      run: |
+        Start-Process -FilePath "npx" -ArgumentList "webdriver-manager start" -PassThru -NoNewWindow
+      shell: pwsh
+ 
+    - name: Wait for Selenium server to start
       run: |
         $maxAttempts = 5
         $attempt = 0
         while ($attempt -lt $maxAttempts) {
-          try {
-            $response = Invoke-WebRequest -Uri http://localhost:4444/wd/hub
-            if ($response.StatusCode -eq 200) {
-              Write-Output "Selenium server is ready."
-              break
-            }
-          } catch {
-            Write-Output "Selenium server not ready yet, retrying..."
+          $response = Invoke-WebRequest -Uri http://localhost:4444/wd/hub 
+          if ($response.StatusCode -eq 200) {
+            Write-Host "Selenium Server is up and running."
+            break
           }
-          Start-Sleep -Seconds 10
-          $attempt++
+          else {
+            Write-Host "Waiting for Selenium Server to start..."
+            Start-Sleep -Seconds 10
+            $attempt++
+          }
         }
         if ($attempt -eq $maxAttempts) {
-          throw "Selenium server did not start within the maximum wait time."
+          throw "Selenium Server did not start in time."
         }
-
+      shell: pwsh
+ 
     - name: Run Protractor tests
       run: npx protractor protractor.conf.js
+
+has context menu
+
