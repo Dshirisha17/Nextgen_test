@@ -35,28 +35,29 @@ jobs:
     - name: Start Selenium server in the background
       run: |
         Start-Process -FilePath "npx" -ArgumentList "webdriver-manager start" -PassThru -NoNewWindow
+        Start-Sleep -Seconds 15 # Give Selenium server some time to start
       shell: pwsh
  
-    - name: Wait for Selenium server to start
-      run: |
-        $maxAttempts = 5
-        $attempt = 0
-        while ($attempt -lt $maxAttempts) {
-          $response = Invoke-WebRequest -Uri http://localhost:4444/wd/hub 
-          if ($response.StatusCode -eq 200) {
-            Write-Host "Selenium Server is up and running."
-            break
-          }
-          else {
-            Write-Host "Waiting for Selenium Server to start..."
-            Start-Sleep -Seconds 10
-            $attempt++
-          }
-        }
-        if ($attempt -eq $maxAttempts) {
-          throw "Selenium Server did not start in time."
-        }
-      shell: pwsh
+    # - name: Wait for Selenium server to start
+    #   run: |
+    #     $maxAttempts = 5
+    #     $attempt = 0
+    #     while ($attempt -lt $maxAttempts) {
+    #       $response = Invoke-WebRequest -Uri http://localhost:4444/wd/hub 
+    #       if ($response.StatusCode -eq 200) {
+    #         Write-Host "Selenium Server is up and running."
+    #         break
+    #       }
+    #       else {
+    #         Write-Host "Waiting for Selenium Server to start..."
+    #         Start-Sleep -Seconds 10
+    #         $attempt++
+    #       }
+    #     }
+    #     if ($attempt -eq $maxAttempts) {
+    #       throw "Selenium Server did not start in time."
+    #     }
+    #   shell: pwsh
  
     - name: Run Protractor tests
       run: npx protractor protractor.conf.js
