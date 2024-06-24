@@ -46,28 +46,30 @@ jobs:
     - name: Wait for Selenium server
       run: |
         $url = 'http://localhost:4444/wd/hub'
-        $maximumWaitTimeInSeconds = 60
+        $maximumWaitTimeInSeconds = 120
         $start = Get-Date
-        $webRequest = $null
+        $serverReady = $false
 
         do {
           try {
             $webRequest = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 1
             if ($webRequest.StatusCode -eq 200) {
               Write-Host "Selenium server is ready!"
-              exit 0
+              $serverReady = $true
             }
-          }
-          catch {
+          } catch {
+            # Output the exception message for debugging
+            Write-Host $_.Exception.Message
             # Do nothing, just continue waiting
           }
           Start-Sleep -Seconds 1
         }
-        while ((New-TimeSpan -Start $start).TotalSeconds -lt $maximumWaitTimeInSeconds)
+        while (-not $serverReady -and (New-TimeSpan -Start $start).TotalSeconds -lt $maximumWaitTimeInSeconds)
 
-        Write-Host "Selenium server did not start within the maximum wait time."
-        exit 1
+        if (-not $serverReady) {
+          Write-Host "Selenium server did not start within the maximum wait time."
+          exit 1
+        }
       shell: pwsh
-
     - name: Run Protractor tests
       run: npx protractor protractor.conf.js
