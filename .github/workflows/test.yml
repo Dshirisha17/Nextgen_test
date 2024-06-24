@@ -25,11 +25,38 @@ jobs:
     - name: Download ChromeDriver
       run: npm install chromedriver@latest
 
+    - name: Update WebDriver Manager
+      run: npx webdriver-manager update
+
     - name: Start Selenium server
-      run: npx webdriver-manager start
+      run: Start-Process 'npx' -ArgumentList 'webdriver-manager start' -NoNewWindow; Start-Sleep -Seconds 10
+      shell: pwsh
 
     # - name: Wait for Selenium server
-    #   run: npx wait-on http://localhost:4444/wd/hub
+    #   run: |
+    #     $url = 'http://localhost:4444/wd/hub'
+    #     $maximumWaitTimeInSeconds = 60
+    #     $start = Get-Date
+    #     $webRequest = $null
+
+    #     do {
+    #       try {
+    #         $webRequest = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 1
+    #         if ($webRequest.StatusCode -eq 200) {
+    #           Write-Host "Selenium server is ready!"
+    #           exit 0
+    #         }
+    #       }
+    #       catch {
+    #         # Do nothing, just continue waiting
+    #       }
+    #       Start-Sleep -Seconds 1
+    #     }
+    #     while ((New-TimeSpan -Start $start).TotalSeconds -lt $maximumWaitTimeInSeconds)
+
+    #     Write-Host "Selenium server did not start within the maximum wait time."
+    #     exit 1
+    #   shell: pwsh
 
     - name: Run Protractor tests
       run: npx protractor protractor.conf.js
