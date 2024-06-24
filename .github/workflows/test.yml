@@ -28,8 +28,8 @@ jobs:
     - name: Start Selenium server
       run: npx webdriver-manager start
 
-    - name: Wait for Selenium server
-      run: npx wait-on http://localhost:4444/wd/hub
+    # - name: Wait for Selenium server
+    #   run: npx wait-on http://localhost:4444/wd/hub
 
     - name: Run Protractor tests
       run: npx protractor protractor.conf.js
