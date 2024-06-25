@@ -17,16 +17,19 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          echo "Installing project dependencies..."
           npm install
+          echo "Installing Protractor globally..."
           npm install -g protractor
 
       - name: Set npm global directory
         run: |
-          npm config set prefix C:\Users\sandhata\AppData\Roaming\npm
+          echo "Configuring npm global directory..."
+          npm config set prefix "C:\Users\sandhata\AppData\Roaming\npm"
         shell: powershell
 
       - name: Run Protractor Tests
         run: |
           echo "Running Protractor tests..."
-          npx protractor protractor.conf.js
+          npx protractor "C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Nextgen_test\protractor.conf.js"
         shell: powershell
