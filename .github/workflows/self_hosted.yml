@@ -13,4 +13,4 @@ jobs:
       - name: Run Protractor Tests
         run: |
           echo "Running Protractor tests..."
-          protractor protractor.conf.js
+          npx protractor protractor.conf.js
