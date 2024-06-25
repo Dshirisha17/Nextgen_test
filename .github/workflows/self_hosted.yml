@@ -10,7 +10,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          npm install
+          npm install -g protractor
+
+      - name: Set npm global directory
+        run: |
+          npm config set prefix C:\Users\sandhata\AppData\Roaming\npm
+        shell: powershell
+
       - name: Run Protractor Tests
         run: |
           echo "Running Protractor tests..."
           npx protractor protractor.conf.js
+        shell: powershell
