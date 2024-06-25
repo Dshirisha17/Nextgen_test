@@ -27,7 +27,7 @@ describe('Login Functionality', () => {
 
   beforeEach(async () => {
     // Navigate to the initial page or home page
-    await browser.get('http://10.10.1.135:400/home');
+    await browser.get('http://10.10.1.135:400');
   });
 
   it('should open the login form, enter credentials, and log in with custom headers', async () => {
