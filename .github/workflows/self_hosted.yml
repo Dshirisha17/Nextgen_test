@@ -15,10 +15,10 @@ jobs:
         with:
           node-version: '20'
  
-      - name: Install Dependencies
-        run: |
-          npm install
-          npm install -g protractor
+      # - name: Install Dependencies
+      #   run: |
+      #     npm install
+      #     npm install -g protractor
  
       - name: Set npm global directory
         run: |
