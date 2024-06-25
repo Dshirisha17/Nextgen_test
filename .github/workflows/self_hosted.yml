@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '20'
 
       # - name: Install Dependencies
       #   run: |
@@ -22,17 +22,17 @@ jobs:
       #     echo "Installing Protractor globally..."
       #     npm install -g protractor
 
-      - name: Set npm global directory
-        run: |
-          echo "Configuring npm global directory..."
-          npm config set prefix "C:\Users\runneradmin\AppData\Roaming\npm"
-        shell: powershell
+      # - name: Set npm global directory
+      #   run: |
+      #     echo "Configuring npm global directory..."
+      #     npm config set prefix "C:\Users\runneradmin\AppData\Roaming\npm"
+      #   shell: powershell
 
-      - name: Ensure npm global bin directory is in PATH
-        run: |
-          echo "Adding npm global bin directory to PATH..."
-          $env:Path += ";C:\Users\runneradmin\AppData\Roaming\npm"
-        shell: powershell
+      # - name: Ensure npm global bin directory is in PATH
+      #   run: |
+      #     echo "Adding npm global bin directory to PATH..."
+      #     $env:Path += ";C:\Users\runneradmin\AppData\Roaming\npm"
+      #   shell: powershell
 
       - name: Run Protractor Tests
         run: |
