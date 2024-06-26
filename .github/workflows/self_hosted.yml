@@ -5,7 +5,8 @@ on:
 
 jobs:
   protractor_tests:
-    runs-on: self-hosted
+    # runs-on: self-hosted
+    runs-on: [self-hosted, Windows]
 
     steps:
       - name: Checkout Repository
