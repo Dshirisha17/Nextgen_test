@@ -20,8 +20,8 @@ jobs:
       - name: Start WebDriver and run Protractor tests
         run: |
          
-          ./run_protractor_tests.sh start
+          bash run_protractor_tests.sh start
 
       - name: Stop WebDriver
-        run: ./run_protractor_tests.sh stop
+        run: bash run_protractor_tests.sh stop
           
