@@ -19,7 +19,7 @@ jobs:
 
       - name: Start WebDriver and run Protractor tests
         run: |
-          chmod +x ./run_protractor_tests.sh
+         
           ./run_protractor_tests.sh start
 
       - name: Stop WebDriver
