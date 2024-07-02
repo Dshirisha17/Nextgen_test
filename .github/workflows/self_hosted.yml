@@ -20,4 +20,6 @@ jobs:
       - name: Run Protractor Tests
         run: |
           echo "Running Protractor tests..."
-          npx protractor "C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Nextgen_test\protractor.conf.js"
+          # npx protractor "C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Nextgen_test\protractor.conf.js"
+          "C:\Users\sandhata\Desktop\test.sh"
+          
