@@ -17,9 +17,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run Protractor Tests
+      - name: Start WebDriver and run Protractor tests
         run: |
-          echo "Running Protractor tests..."
-          # npx protractor "C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Nextgen_test\protractor.conf.js"
-          "C:\Users\sandhata\Desktop\test.sh"
+          chmod +x ./run_protractor_tests.sh
+          ./run_protractor_tests.sh start
+
+      - name: Stop WebDriver
+        run: ./run_protractor_tests.sh stop
           
