@@ -10,6 +10,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        
+    
+      - name: Set up Git for Windows
+        shell: cmd
+        run: |
+          "C:\Program Files\Git\bin\bash.exe" --version
+      - name: Run Bash script
+        shell: bash
 
       - name: Start WebDriver
         run: bash C:\Users\sandhata\Desktop\test.sh start
