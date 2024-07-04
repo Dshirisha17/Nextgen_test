@@ -5,25 +5,18 @@ on:
 
 jobs:
   protractor_tests:
-    # runs-on: self-hosted
-    runs-on: [self-hosted, Windows]
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # - name: Setup Node.js
-        # uses: actions/setup-node@v2
-        # with:
-        #   node-version: '20'
+      - name: Start WebDriver
+        run: bash C:\Users\sandhata\Desktop\test.sh start
 
-      # - name: Start WebDriver and run Protractor tests
-      #   run: |
-         
-      #     bash run_protractor_tests.sh start
+      # - name: Run Protractor Tests
+      #   run: npx protractor "C:/Users/sandhata/shirisha dodla/UI_testing_nextgen/Nextgen_test/protractor.conf.js"
 
-      # - name: Stop WebDriver
-      #   run: bash run_protractor_tests.sh stop
-          
-      - name: Run protractor testcaes 
-        run: npx protractor "C:\Users\sandhata\shirisha dodla\UI_testing_nextgen\Nextgen_test\protractor.conf.js"
+      - name: Stop WebDriver
+        # if: always()
+        run: C:\Users\sandhata\Desktop\test.sh stop
