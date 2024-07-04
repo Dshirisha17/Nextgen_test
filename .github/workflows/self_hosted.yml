@@ -11,20 +11,22 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         
-    
       - name: Set up Git for Windows
         shell: cmd
         run: |
           "C:\Program Files\Git\bin\bash.exe" --version
-      - name: Run Bash script
-        # shell: bash
-
+      
       - name: Start WebDriver
-        run: bash C:\Users\sandhata\Desktop\test.sh start
+        shell: cmd
+        run: |
+          "C:\Program Files\Git\bin\bash.exe" C:/Users/sandhata/Desktop/test.sh start
 
       # - name: Run Protractor Tests
+      #   shell: cmd
       #   run: npx protractor "C:/Users/sandhata/shirisha dodla/UI_testing_nextgen/Nextgen_test/protractor.conf.js"
 
       - name: Stop WebDriver
-        # if: always()
-        run: C:\Users\sandhata\Desktop\test.sh stop
+        if: always()
+        shell: cmd
+        run: |
+          "C:\Program Files\Git\bin\bash.exe" C:/Users/sandhata/Desktop/test.sh stop
