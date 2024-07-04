@@ -19,7 +19,7 @@ jobs:
       - name: Start WebDriver
         shell: cmd
         run: |
-          "C:\Program Files\Git\bin\bash.exe" C:/Users/sandhata/Desktop/test.sh start
+          "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Desktop\selenium_server_manager.sh start
 
       # - name: Run Protractor Tests
       #   shell: cmd
@@ -29,4 +29,4 @@ jobs:
         if: always()
         shell: cmd
         run: |
-          "C:\Program Files\Git\bin\bash.exe" C:/Users/sandhata/Desktop/test.sh stop
+          "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Desktop\selenium_server_manager.sh stop
