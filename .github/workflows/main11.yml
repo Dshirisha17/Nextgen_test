@@ -1,0 +1,80 @@
+name: Automated Testing Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  protractor-test:
+    runs-on: [self-hosted, Windows]
+
+    env:
+      PATH: 'C:\Program Files\Git\bin;C:\Program Files\nodejs;C:\Windows\System32;C:\Users\sandhata\AppData\Roaming\npm;C:\Program Files\Java\jdk-11.0.16.1\bin'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git for Windows
+        shell: bash
+        run: |
+          echo "PATH is: $PATH"
+          echo "Checking Git version..."
+          "/c/Program Files/Git/bin/git" --version
+          echo "Checking Node.js version..."
+          "node" --version
+          echo "Checking npm version..."
+          "npm" --version
+          echo "Checking Java version..."
+          java -version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Selenium Server
+        shell: bash
+        run: bash /c/Users/sandhata/Desktop/selenium_server_manager.sh 
+
+      - name: Run Protractor Tests
+        shell: bash
+        run: protractor conf.js
+
+      - name: View log file contents
+        shell: bash
+        run: |
+          echo "Contents of selenium_server.log:"
+          cat /c/Users/sandhata/AppData/Roaming/npm/node_modules/protractor/node_modules/selenium_server.log 
+
+  api-test:
+    runs-on: [self-hosted, Windows]
+    needs: protractor-test
+    
+    env:
+      PATH: 'C:\Program Files\Git\bin'
+      MASKING_ENGINE: "http://10.10.1.13/masking/api/v5.1.27"
+      APPLICATION_NAME: "DEMOZZZ1"
+      ENVIRONMENT_NAME: "DEMOZZZ1"
+      CONNECTION_NAME: "CONN_DEMOMSK1"
+      DATABASE_TYPE: "DB2_MAINFRAME"
+      HOST_IP: "10.10.1.182"
+      PORT: "5040"
+      DBSCHEMA: "DEV"
+      DBNAME: "DALLASC"
+      RS_NAME: "RS1"
+      INPUT_TABLE_NAME1: "CARD_DETAILS"
+      COLNAME: "CARD_NUMBER"
+      ALGORITHM1: "CreditCard"
+      DOMAIN1: "CREDIT CARD"
+      JOB_NAME: "DEMOMSKA"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run Bash script
+        shell: bash
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          HOST_USERNAME: ${{ secrets.HOST_USERNAME }}
+          HOST_PASSWORD: ${{ secrets.HOST_PASSWORD }}
+        run: bash C:\Users\sandhata\Desktop\maskingAPI_card_v1.0.sh
