@@ -4,49 +4,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  protractor-test:
-    runs-on: [self-hosted, Windows]
-
-    env:
-      PATH: 'C:\Program Files\Git\bin;C:\Program Files\nodejs;C:\Windows\System32;C:\Users\sandhata\AppData\Roaming\npm;C:\Program Files\Java\jdk-11.0.16.1\bin'
+  protractor_tests:
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
-
+        
       - name: Set up Git for Windows
-        shell: bash
+        shell: cmd
         run: |
-          echo "PATH is: $PATH"
-          echo "Checking Git version..."
-          "/c/Program Files/Git/bin/git" --version
-          echo "Checking Node.js version..."
-          "node" --version
-          echo "Checking npm version..."
-          "npm" --version
-          echo "Checking Java version..."
-          java -version
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Selenium Server
-        shell: bash
-        run: bash /c/Users/sandhata/Desktop/selenium_server_manager.sh 
-
-      - name: Run Protractor Tests
-        shell: bash
-        run: protractor conf.js
-
-      - name: View log file contents
-        shell: bash
+          "C:\Program Files\Git\bin\bash.exe" --version
+      
+      - name: Start WebDriver
+        shell: cmd
         run: |
-          echo "Contents of selenium_server.log:"
-          cat /c/Users/sandhata/AppData/Roaming/npm/node_modules/protractor/node_modules/selenium_server.log 
+          "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Desktop\selenium_server_manager.sh 
 
   api-test:
     runs-on: [self-hosted, Windows]
-    needs: protractor-test
+    needs: protractor_tests
     
     env:
       PATH: 'C:\Program Files\Git\bin'
