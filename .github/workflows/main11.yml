@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Bash script
-        shell: bash
+        # shell: bash
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
