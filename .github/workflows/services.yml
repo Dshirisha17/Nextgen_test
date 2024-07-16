@@ -6,6 +6,8 @@ on:
 jobs:
   protractor_tests:
     runs-on: self-hosted
+    env:
+      PATH: C:\Program Files\Git\bin;C:\Program Files\nodejs;C:\Windows\System32;C:\Users\sandhata\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_321\bin
 
     steps:
       - name: Checkout Repository
