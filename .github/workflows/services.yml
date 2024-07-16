@@ -8,26 +8,22 @@ jobs:
     runs-on: [self-hosted, Windows]
 
     env:
-      PATH: 'C:\Program Files\Git\bin;C:\Program Files\nodejs;C:\Windows\System32;C:\Users\sandhata\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_321\bin'
+      PATH: 'C:\\Program Files\\Git\\bin;C:\\Program Files\\nodejs;C:\\Windows\\System32;C:\\Users\\sandhata\\AppData\\Roaming\\npm;C:\\Program Files\\Java\\jdk1.8.0_321\\bin'
 
     steps:
-      - name: Set up Git for Windows
+      - name: Check versions
         shell: bash
         run: |
           echo "PATH is: $PATH"
           echo "Checking Git version..."
-          "/c/Program Files/Git/bin/git" --version
+          git --version
           echo "Checking Node.js version..."
-          "node" --version
+          node --version
           echo "Checking npm version..."
-          "npm" --version
+          npm --version
           echo "Checking Java version..."
           java -version
+
       - name: Run Bash script
-        # shell: bash
+        shell: bash
         run: bash /c/Users/sandhata/Downloads/startcardservices.sh
-      # - name: View log file contents
-      #   shell: bash
-      #   run: |
-      #     echo "Contents of selenium_server_PCWOB.log:"
-      #     cat /c/Users/sandhata/Desktop/Selenium/selenium_server_PCWOB.log
