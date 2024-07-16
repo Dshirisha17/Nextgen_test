@@ -7,24 +7,21 @@ jobs:
   bash-script:
     runs-on: [self-hosted, Windows]
 
-    env:
-      PATH: C:\Program Files\Git\bin;C:\Program Files\nodejs;C:\Windows\System32;C:\Users\sandhata\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_321\bin
-
     steps:
-      - name: Set up Git for Windows
-        shell: bash
+      - name: Check versions
+        shell: pwsh
         run: |
-          echo "Initial PATH is: $PATH"
-          echo "Checking Git version..."
+          Write-Host "Initial PATH is: $env:PATH"
+          Write-Host "Checking Git version..."
           git --version
-          echo "Checking Node.js version..."
+          Write-Host "Checking Node.js version..."
           node --version
-          echo "Checking npm version..."
+          Write-Host "Checking npm version..."
           npm --version
-          echo "Checking Java version..."
+          Write-Host "Checking Java version..."
           java -version
 
       - name: Run Bash script
-        shell: bash
+        shell: pwsh
         run: |
           bash /c/Users/sandhata/Downloads/startcardservices.sh
