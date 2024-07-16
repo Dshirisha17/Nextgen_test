@@ -10,9 +10,14 @@ jobs:
       PATH: C:\Program Files\Git\bin;C:\Program Files\nodejs;C:\Windows\System32;C:\Users\sandhata\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_321\bin
 
     steps:
+      - name: Clean Up Repository Directory
+        shell: cmd
+        run: |
+          rmdir /S /Q C:\Windows\actions-runner\test-runner\_work\Nextgen_test\Nextgen_test
+        
       - name: Checkout Repository
         uses: actions/checkout@v2
-        
+      
       - name: Set up Git for Windows
         shell: cmd
         run: |
@@ -22,6 +27,3 @@ jobs:
         shell: cmd
         run: |
           "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Downloads\startcardservices.sh
-
-
-    
