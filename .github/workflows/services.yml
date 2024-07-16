@@ -1,23 +1,30 @@
-
 name: startservices
 
 on:
-   workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-  protractor_tests:
-    runs-on: self-hosted
+  bash-script:
+    runs-on: [self-hosted, Windows]
+
+    env:
+      PATH: C:\Program Files\Git\bin;C:\Program Files\nodejs;C:\Windows\System32;C:\Users\sandhata\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_321\bin
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-        
       - name: Set up Git for Windows
-        shell: cmd
+        shell: bash
         run: |
-          "C:\Program Files\Git\bin\bash.exe" --version
-      
-      - name: Start WebDriver
-        shell: cmd
+          echo "Initial PATH is: $PATH"
+          echo "Checking Git version..."
+          git --version
+          echo "Checking Node.js version..."
+          node --version
+          echo "Checking npm version..."
+          npm --version
+          echo "Checking Java version..."
+          java -version
+
+      - name: Run Bash script
+        shell: bash
         run: |
-          "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Downloads\startcardservices.sh
+          bash /c/Users/sandhata/Downloads/startcardservices.sh
