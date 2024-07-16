@@ -4,24 +4,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  bash-script:
-    runs-on: [self-hosted, Windows]
+  protractor_tests:
+    runs-on: self-hosted
 
     steps:
-      - name: Check versions
-        shell: pwsh
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Set up Git for Windows
+        shell: cmd
         run: |
-          Write-Host "Initial PATH is: $env:PATH"
-          Write-Host "Checking Git version..."
-          git --version
-          Write-Host "Checking Node.js version..."
-          node --version
-          Write-Host "Checking npm version..."
-          npm --version
-          Write-Host "Checking Java version..."
-          java -version
+          "C:\Program Files\Git\bin\bash.exe" --version
+      
+      - name: Start WebDriver
+        shell: cmd
+        run: |
+          "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Downloas\startcardservices.sh
 
-      - name: Run Bash script
-        shell: pwsh
-        run: |
-          bash /c/Users/sandhata/Downloads/startcardservices.sh
+
+    
