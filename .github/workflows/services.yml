@@ -19,7 +19,7 @@ jobs:
       - name: Start WebDriver
         shell: cmd
         run: |
-          "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Downloas\startcardservices.sh
+          "C:\Program Files\Git\bin\bash.exe" C:\Users\sandhata\Downloads\startcardservices.sh
 
 
     
