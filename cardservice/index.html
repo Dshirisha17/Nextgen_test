@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Card Details of Customers</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif; 
+    }
+    .container {
+      margin-top: 20px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .table-responsive, h1 {
+      margin-left: 0px; 
+    }
+    .table-responsive {
+      width: 100%;
+    }
+    #cardTable {
+      height: 600px; 
+      width: 100%;
+      overflow-y: auto;
+    }
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background-color: #f7e3e3;
+      z-index: 100;
+    }
+    .table {
+      border-collapse: collapse;
+      table-layout: auto;
+      width: 100%;
+    }
+    .table th, .table td {
+      padding: 8px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .table td {
+      max-width: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Card Details of Customers</h1>
+    <div id="cardTable" class="table-responsive">
+      <table id="example" class="table table-striped">
+        <thead class="sticky-header">
+          <tr>
+            <th>Account Number</th>
+            <th>Card Number</th>
+            <th>Card CVV</th>
+            <th>Card Valid To</th>
+            <th>Card Type</th>
+            <th>Cardholder Name</th>
+          </tr>
+        </thead>
+        <tbody id="cardTableBody">
+          <!-- Data will be injected here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle with Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- JavaScript logic to fetch and populate data -->
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      fetchCardDetails();
+
+      function fetchCardDetails() {
+        const port = window.location.port;
+        const apiUrl = port === '204' ? '/api/services/SYSIBMSERVICE/getCarddetails/V1' : '/api/services/SYSIBMSERVICE/getCarddetails/V3';
+
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic aWJtdXNlcjpzYW5kaGF0YQ=='
+          }
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Data received:', data);
+          const tableBody = document.getElementById('cardTableBody');
+          if (data && data['ResultSet Output']) {
+            data['ResultSet Output'].forEach(row => {
+              const tr = document.createElement('tr');
+              tr.innerHTML = `
+                <td>${row.ACCOUNT_NO}</td>
+                <td>${row.CARD_NUMBER}</td>
+                <td>${row.CARD_CVV}</td>
+                <td>${row.CARD_VALID_TO}</td>
+                <td>${row.CARD_TYPE}</td>
+                <td>${row.CARDHOLDER_NM}</td>
+              `;
+              tableBody.appendChild(tr);
+            });
+          } else {
+            console.error('Invalid or empty data structure:', data);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching card details:', error.message);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
